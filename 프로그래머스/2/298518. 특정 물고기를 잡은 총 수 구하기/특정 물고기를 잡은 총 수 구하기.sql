@@ -1,0 +1,16 @@
+-- 코드를 작성해주세요
+-- TYPE : BASS 0, SNAPPER 1
+-- 기준 FISH TYPE
+-- SELECT[컬럼 이름] 
+-- FROM[테이블 A이름] AS A 
+
+-- INNER JOIN [테이블 B 이름] AS B ON A.[컬럼 1이름]=B.[컬럼 1이름] AND...AND A.[컬럼n 이름]-- [컬럼n 이름];
+-- FISH_INFO 테이블에서 잡은 BASS와 SNAPPER의 수를 출력하는 SQL 문을 작성해주세요.
+
+
+SELECT COUNT(FISH_NAME) AS FISH_COUNT
+FROM FISH_INFO FI
+JOIN FISH_NAME_INFO FIN
+ON FI.FISH_TYPE = FIN.FISH_TYPE
+WHERE FIN.FISH_NAME = 'BASS' OR FIN.FISH_NAME ='SNAPPER'
+
