@@ -1,0 +1,11 @@
+-- 코드를 작성해주세요
+-- 아이템의 희귀도가 'RARE'인 아이템들의 모든 다음 업그레이드 아이템의 아이템 id,name,rarity
+-- 
+-- 
+-- 
+SELECT A.ITEM_ID, A.ITEM_NAME,A.RARITY
+FROM ITEM_INFO A 
+JOIN ITEM_TREE B 
+ON A.ITEM_ID = B.ITEM_ID
+WHERE B.PARENT_ITEM_ID IN (SELECT ITEM_ID FROM ITEM_INFO WHERE RARITY='RARE')
+ORDER BY ITEM_ID DESC ;
