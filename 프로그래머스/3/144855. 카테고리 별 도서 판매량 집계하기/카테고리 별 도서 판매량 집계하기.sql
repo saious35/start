@@ -1,0 +1,14 @@
+-- 코드를 입력하세요
+-- 0612 WHERE SALES_DATE ='2022-01-01' AND SALES_DATE ='2022-01-31'
+
+-- 조건 1 2022년 1월의 카테고리 별 도서 판매량을 합산하고, 
+-- 조건 2 카테고리(CATEGORY), 총 판매량(TOTAL_SALES) 리스트를 출력
+-- 조건 3 카테고리명을 기준으로 오름차순 정렬해주세요.
+ 
+SELECT B.CATEGORY , SUM(BS.SALES) AS TOTAL_SALES
+FROM BOOK B 
+JOIN BOOK_SALES BS 
+ON B.BOOK_ID = BS.BOOK_ID
+WHERE DATE_FORMAT(BS.SALES_DATE, '%m') = 1
+GROUP BY CATEGORY 
+ORDER BY CATEGORY
