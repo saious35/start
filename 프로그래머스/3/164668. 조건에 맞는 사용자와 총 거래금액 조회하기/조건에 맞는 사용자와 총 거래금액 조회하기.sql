@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+-- 0613
+-- 조건 1 완료된 중고 거래의,  총금액이 70만 원 이상인 
+-- 사람의 회원 ID, 닉네임, 총거래금액을 조회 
+-- 총거래금액을 기준으로 오름차순 정렬
+SELECT  USER_ID,NICKNAME, SUM(PRICE)AS TOTAL_SALES
+FROM USED_GOODS_BOARD UB JOIN USED_GOODS_USER UU ON UB.WRITER_ID = UU.USER_ID
+WHERE STATUS = 'DONE'
+GROUP BY USER_ID
+HAVING SUM(PRICE) >=700000
+ORDER BY TOTAL_SALES;
