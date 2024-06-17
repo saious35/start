@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+-- 0617
+-- 입양을 간 동물 중, 보호 기간이 가장 길었던 동물 두 마리의 아이디와 이름을 조회
+-- 보호 기간이 긴 순으로 조회
+SELECT AI.ANIMAL_ID, AI.NAME
+FROM ANIMAL_INS AI JOIN ANIMAL_OUTS AO ON AI.ANIMAL_ID = AO.ANIMAL_ID
+
+ORDER BY DATEDIFF(AO.DATETIME,AI.DATETIME ) DESC
+LIMIT 2
